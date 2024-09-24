@@ -8,7 +8,7 @@ import java.net.Socket;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        String host = "localhost";
+        String host = "netology.homework";
         int port = 8035;
 
         try (Socket clientSocket = new Socket(host, port);
@@ -17,6 +17,9 @@ public class Main {
 
             out.println("Gregori Van Pljushkin");
             String resp = in.readLine();
+            System.out.println(resp);
+            out.println("19");
+           resp = in.readLine();
             System.out.println(resp);
         } catch (IOException e) {
             e.printStackTrace();

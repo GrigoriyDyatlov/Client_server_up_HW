@@ -7,7 +7,7 @@ import java.net.Socket;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        System.out.println("Server started");
+        System.out.println("netology.homework");
         int port = 8035;
 
         try (ServerSocket serverSocket = new ServerSocket(port)) {
@@ -17,8 +17,12 @@ public class Main {
                      BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))
                 ) {
                     System.out.printf("New connection accepted. Port: %d%n", clientSocket.getPort());
-                    final String name = in.readLine();
-                    out.println(String.format("Hi %s, your port is %d", name, clientSocket.getPort()));
+                    final String username = in.readLine();
+                    out.println(String.format("How old are you?"));
+                    int age = Integer.parseInt(in.readLine());
+                    if (age <= 18){
+                        out.println(String.format("Welcome to the kids area, %s! Let's play!", username));
+                    } else out.println(String.format("Welcome to the adult zone, %s! Have a good rest, or a good working day!", username));
                 }
 
             }
